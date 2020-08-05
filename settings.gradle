@@ -1,0 +1,2 @@
+rootProject.name='UserListTask'
+include ':app'
