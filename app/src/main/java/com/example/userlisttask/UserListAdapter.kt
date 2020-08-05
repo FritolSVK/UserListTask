@@ -4,11 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.single_user_layout.view.*
 
 class UserListAdapter: RecyclerView.Adapter<SingleUserView>() {
 
+    val listOfNames = listOf("Peder", "Jozef", "Marek")
+
     override fun getItemCount(): Int {
-        return 3
+        return listOfNames.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SingleUserView {
@@ -19,8 +22,8 @@ class UserListAdapter: RecyclerView.Adapter<SingleUserView>() {
     }
 
     override fun onBindViewHolder(holder: SingleUserView, position: Int) {
-
+        holder.view.userName.text = listOfNames.get(position)
     }
 }
 
-class SingleUserView(view: View) : RecyclerView.ViewHolder(view)
+class SingleUserView(val view: View) : RecyclerView.ViewHolder(view)
